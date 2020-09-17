@@ -1,0 +1,14 @@
+service: tm-actions-test
+description: "GitHub Actions Test with TriggerMesh"
+
+provider:
+  name: triggermesh
+
+functions:
+  actiontest:
+    handler: actiontest
+    description: "A sample test function that will just accept a request"
+    runtime: https://raw.githubusercontent.com/triggermesh/openfaas-runtime/master/python2.7/openfaas-python2.7-runtime.yaml
+    buildargs:
+    - HANDLER=index.py
+    - DIRECTORY=actiontest
